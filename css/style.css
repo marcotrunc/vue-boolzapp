@@ -36,3 +36,11 @@
     height: 80%;
     background-color: yellow;
 }
+
+/**Icon**/
+.icon{
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+}
