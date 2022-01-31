@@ -50,7 +50,7 @@ i{
 
 
 #contacts{
-    overflow-y: scroll;
+    overflow-y: auto;
     background-color: #ffffff;
     flex-grow: 1;
 }
@@ -62,6 +62,13 @@ i{
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
+}
+.fas,
+.far{
+    color: #AEBAC1;
+}
+.fa-bell-slash{
+    color:var(--bs-acquamarine);
 }
 /**SEARCH**/
 #search{
@@ -95,4 +102,32 @@ padding: 5px;
 #main{
     flex-grow: 1;
     background-image: url('../img/mine.jpg');
+}
+/*? Received-message*/
+.received-message,
+.send-message{
+    width: 230px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+}
+.container-message{
+    display: block;
+    height: 80px;
+    position: relative;
+}
+.received-message{
+    background-color: #ffffff;
+    position: absolute;
+    left: 4rem;
+    top:50%;
+    transform: translate(0,-50%);
+    
+}
+.send-message{
+    background-color: #D9FDD3;
+    position: absolute;
+    right: 4rem;
+    top:50%;
+    transform: translate(0,-50%);
 }
