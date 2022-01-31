@@ -21,7 +21,13 @@
     --bs-light-grey:#F0F2F5;
     --bs-acquamarine:#53BDEB;
 }
-
+/**UTILITIES**/
+.fs-7{
+    font-size: 0.8rem;
+}
+i{
+    cursor: pointer;
+}
 /**CONTAINER-FLUID**/
 .container-fluid{
     height: 100vh;
@@ -30,9 +36,7 @@
 }
 /**CONTAINER**/
 .container{
-    background-color: red;
-    margin: 0 auto;  
-   height: 90vh;
+    height: 90vh;
     width: 1200px;
 }
 /**LEFT COL**/
@@ -43,15 +47,11 @@
 .row{
     height: 100%;
 }
-#generic-info{
-    border-bottom: 3px solid black;
-    height: 20%;
-}
+
 
 #contacts{
     overflow-y: scroll;
-    height: 80%;
-    background-color: yellow;
+    background-color: var(--bs-light-grey);
 }
 
 /**Icon**/
@@ -60,4 +60,38 @@
     width: 45px;
     border-radius: 50%;
     overflow: hidden;
+    cursor: pointer;
+}
+/**SEARCH**/
+#search{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+input[type='search']{
+    border: none;
+    flex-grow: 1;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    outline-offset: 0;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+input[type='search']:focus-visible,
+input[type='text']:focus-visible{
+    outline: none;
+}
+/**INPUT TEXT**/
+input[type='text']{
+flex-grow: 1;
+border: none;
+padding: 5px;
+}
+
+/**MAIN-Message**/
+#main{
+    flex-grow: 1;
+    background-image: url('../img/mine.jpg');
 }
