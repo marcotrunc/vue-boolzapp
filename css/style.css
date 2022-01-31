@@ -1,0 +1,38 @@
+:root{
+    --bs-green:#00A884;
+    --bs-grey:#E0E0DD;
+    --bs-light-grey:#D9FDD3;
+    --bs--light-grey:#F0F2F5;
+}
+
+/**CONTAINER-FLUID**/
+.container-fluid{
+    height: 100vh;
+    background-image: linear-gradient(to bottom,#00A884 20%, #E0E0DD 20%,#E0E0DD 20%,#E0E0DD 20%,#E0E0DD 20%);
+    padding: 20px 0;
+}
+/**CONTAINER**/
+.container{
+    background-color: red;
+    margin: 0 auto;  
+   height: 90vh;
+    width: 1200px;
+}
+/**LEFT COL**/
+#left-col{
+    border-right: 3px solid black;
+    height: 100%;
+}
+.row{
+    height: 100%;
+}
+#generic-info{
+    border-bottom: 3px solid black;
+    height: 20%;
+}
+
+#contacts{
+    overflow-y: scroll;
+    height: 80%;
+    background-color: yellow;
+}
