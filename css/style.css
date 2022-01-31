@@ -1,8 +1,25 @@
+/**BACKGROUND**/
+.bs-green{
+    background-color: var(--bs-green);
+}
+.bs-grey{
+    background-color: var(--bs-grey);
+}
+.bs-light-green{
+    background-color: var(--bs-light-green);
+}
+.bs-acquamarine{
+    background-color: var(--bs-acquamarine);
+}
+.bs-light-grey{
+    background-color: var(--bs-light-grey);
+}
 :root{
     --bs-green:#00A884;
     --bs-grey:#E0E0DD;
-    --bs-light-grey:#D9FDD3;
-    --bs--light-grey:#F0F2F5;
+    --bs-light-green:#D9FDD3;
+    --bs-light-grey:#F0F2F5;
+    --bs-acquamarine:#53BDEB;
 }
 
 /**CONTAINER-FLUID**/
