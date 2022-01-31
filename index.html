@@ -51,7 +51,7 @@
                             </div>
                         </section>
                         <section id="contacts">
-                            <div v-for="(contact, index) in contacts" class="d-flex p-2">
+                            <div v-for="(contact, index) in contacts" id="contact" class="d-flex p-2">
                                 <div class="icon me-2">
                                     <img :src="`img/avatar${contact.avatar}.jpg`" alt=""
                                         class="img-fluid overflow-hidden">
@@ -90,6 +90,25 @@
                             <div class="container-message">
                                 <div class="received-message">Tutto fatto!</div>
                             </div>
+                            <div class="container-message">
+                                <div class="send-message">Hai portato a spasso il cane?</div>
+                            </div>
+                            <div class="container-message">
+                                <div class="send-message">Ricordati di dargli da mangiare</div>
+                            </div>
+                            <div class="container-message">
+                                <div class="received-message">Tutto fatto!</div>
+                            </div>
+                            <div class="container-message">
+                                <div class="send-message">Hai portato a spasso il cane?</div>
+                            </div>
+                            <div class="container-message">
+                                <div class="send-message">Ricordati di dargli da mangiare</div>
+                            </div>
+                            <div class="container-message">
+                                <div class="received-message">Tutto fatto!</div>
+                            </div>
+
                         </section>
                         <section id="footer-player" class="d-flex justify-content-between align-items-center px-2 py-3">
                             <i class="far fa-smile fa-lg m-2"></i>

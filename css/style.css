@@ -54,6 +54,9 @@ i{
     background-color: #ffffff;
     flex-grow: 1;
 }
+#contact:hover{
+    background-color: var(--bs-grey);
+}
 
 /**Icon**/
 .icon{
@@ -91,6 +94,10 @@ input[type='search']:focus-visible,
 input[type='text']:focus-visible{
     outline: none;
 }
+/**RIGHT-COL**/
+#right-col{
+    height: 100%;
+}
 /**INPUT TEXT**/
 input[type='text']{
 flex-grow: 1;
@@ -102,6 +109,7 @@ padding: 5px;
 #main{
     flex-grow: 1;
     background-image: url('../img/mine.jpg');
+    overflow-y: auto;
 }
 /*? Received-message*/
 .received-message,
@@ -131,3 +139,4 @@ padding: 5px;
     top:50%;
     transform: translate(0,-50%);
 }
+/*?------------------------------------------ */
