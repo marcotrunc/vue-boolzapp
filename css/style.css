@@ -51,7 +51,8 @@ i{
 
 #contacts{
     overflow-y: scroll;
-    background-color: var(--bs-light-grey);
+    background-color: #ffffff;
+    flex-grow: 1;
 }
 
 /**Icon**/
