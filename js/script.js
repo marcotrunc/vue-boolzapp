@@ -104,13 +104,23 @@ const root = new Vue({
             return message.status === 'received' ? 'received-message' : 'send-message'
         },
         newMessageSent(contact) {
-            const newObject = {
+            const newObjectSent = {
                 date: '',
                 text: this.textMessage,
                 status: 'sent',
             }
-            contact.messages = [...contact.messages, newObject];
+            contact.messages = [...contact.messages, newObjectSent];
             this.textMessage = '';
+
+            setTimeout(() => {
+                const newObjectreceived = {
+                    date: '',
+                    text: 'ok',
+                    status: 'received',
+                }
+
+                contact.messages = [...contact.messages, newObjectreceived]
+            }, 1000)
         },
     }
 });
