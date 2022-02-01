@@ -2,6 +2,9 @@ console.log('Vue OK!', Vue);
 
 Vue.config.devtools = true;
 
+dayjs.extend(dayjs_plugin_customParseFormat);
+
+
 const root = new Vue({
     el: '#root',
     data: {
@@ -103,9 +106,12 @@ const root = new Vue({
         isReceived(message) {
             return message.status === 'received' ? 'received-message' : 'send-message'
         },
+        isSent(message) {
+            return message.status === 'sent' ? 'flex-end' : 'flex-start'
+        },
         newMessageSent(contact) {
             const newObjectSent = {
-                date: '',
+                date: dayjs().format('HH:mm'),
                 text: this.textMessage,
                 status: 'sent',
             }
@@ -114,7 +120,7 @@ const root = new Vue({
 
             setTimeout(() => {
                 const newObjectreceived = {
-                    date: '',
+                    date: dayjs().format('HH:mm'),
                     text: 'ok',
                     status: 'received',
                 }

@@ -25,6 +25,9 @@
 .fs-7{
     font-size: 0.8rem;
 }
+.fs-8{
+    font-size: 0.7rem;
+}
 i{
     cursor: pointer;
 }
@@ -109,11 +112,12 @@ padding: 5px;
     flex-grow: 1;
     background-image: url('../img/mine.jpg');
     overflow-y: auto;
+    overflow-x: hidden;
 }
 /*? Received-message*/
 .received-message,
 .send-message{
-    width: 230px;
+    min-width: 230px;
     padding: 10px 15px;
     border-radius: 10px;
     font-size: 0.95rem;
@@ -122,6 +126,7 @@ padding: 5px;
     display: block;
     height: 80px;
     position: relative;
+    margin-bottom: 10px;
 }
 .received-message{
     background-color: #ffffff;
