@@ -6,6 +6,7 @@ const root = new Vue({
     el: '#root',
     data: {
         currentIndex: 0,
+        textMessage: '',
         user: {
             name: 'Nome Utente',
             avatar: '_io'
@@ -101,6 +102,15 @@ const root = new Vue({
         },
         isReceived(message) {
             return message.status === 'received' ? 'received-message' : 'send-message'
-        }
+        },
+        newMessageSent(contact) {
+            const newObject = {
+                date: '',
+                text: this.textMessage,
+                status: 'sent',
+            }
+            contact.messages = [...contact.messages, newObject];
+            this.textMessage = '';
+        },
     }
 });

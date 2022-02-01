@@ -97,7 +97,8 @@
                         <!-- Footer -->
                         <section id="footer-player" class="d-flex justify-content-between align-items-center px-2 py-3">
                             <i class="far fa-smile fa-lg m-2"></i>
-                            <input type="text" placeholder="Scrivi un messaggio">
+                            <input type="text" placeholder="Scrivi un messaggio" v-model="textMessage"
+                                @keyup.enter="newMessageSent(contact)">
                             <i class="fas fa-microphone fa-lg m-2"></i>
                         </section>
                     </div>
