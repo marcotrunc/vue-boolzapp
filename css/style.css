@@ -127,16 +127,18 @@ padding: 5px;
 .received-message{
     background-color: #ffffff;
     position: absolute;
-    left: 4rem;
+    left: 0;
     top:50%;
     transform: translate(0,-50%);
+    margin-left: 32px;
     
 }
 .send-message{
     background-color: #D9FDD3;
     position: absolute;
-    right: 4rem;
+    right: 0;
     top:50%;
     transform: translate(0,-50%);
+    margin-right: 32px;
 }
 /*?------------------------------------------ */
