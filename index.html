@@ -85,33 +85,14 @@
                         </section>
                         <!-- Main -->
                         <section id="main">
-                            <div class="container-message">
-                                <div class="send-message">Hai portato a spasso il cane?</div>
+                            <div v-for="(contact, index) in contacts" v-if="isActive(index)">
+                                <div class="container-message" v-for="(message, y) in contact.messages">
+                                    <div :class="message.status === 'received' ? 'received-message' : 'send-message'">
+                                        {{message.text}}</div>
+                                </div>
                             </div>
-                            <div class="container-message">
-                                <div class="send-message">Ricordati di dargli da mangiare</div>
-                            </div>
-                            <div class="container-message">
-                                <div class="received-message">Tutto fatto!</div>
-                            </div>
-                            <div class="container-message">
-                                <div class="send-message">Hai portato a spasso il cane?</div>
-                            </div>
-                            <div class="container-message">
-                                <div class="send-message">Ricordati di dargli da mangiare</div>
-                            </div>
-                            <div class="container-message">
-                                <div class="received-message">Tutto fatto!</div>
-                            </div>
-                            <div class="container-message">
-                                <div class="send-message">Hai portato a spasso il cane?</div>
-                            </div>
-                            <div class="container-message">
-                                <div class="send-message">Ricordati di dargli da mangiare</div>
-                            </div>
-                            <div class="container-message">
-                                <div class="received-message">Tutto fatto!</div>
-                            </div>
+
+
                         </section>
                         <!-- Footer -->
                         <section id="footer-player" class="d-flex justify-content-between align-items-center px-2 py-3">
