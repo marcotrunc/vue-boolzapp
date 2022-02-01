@@ -98,6 +98,9 @@ const root = new Vue({
         },
         indexAssignment(index) {
             this.currentIndex = index;
+        },
+        isReceived(message) {
+            return message.status === 'received' ? 'received-message' : 'send-message'
         }
     }
 });

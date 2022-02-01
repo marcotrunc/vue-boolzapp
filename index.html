@@ -87,7 +87,7 @@
                         <section id="main">
                             <div v-for="(contact, index) in contacts" v-if="isActive(index)">
                                 <div class="container-message" v-for="(message, y) in contact.messages">
-                                    <div :class="message.status === 'received' ? 'received-message' : 'send-message'">
+                                    <div :class="isReceived(message)">
                                         {{message.text}}</div>
                                 </div>
                             </div>
