@@ -51,7 +51,8 @@
                             </div>
                         </section>
                         <section id="contacts">
-                            <div v-for="(contact, index) in contacts" id="contact" class="d-flex p-2">
+                            <div v-for="(contact, index) in contacts" id="contact" class="d-flex p-2"
+                                @click="indexAssignment(index)">
                                 <div class="icon me-2">
                                     <img :src="`img/avatar${contact.avatar}.jpg`" alt=""
                                         class="img-fluid overflow-hidden">
@@ -66,13 +67,13 @@
                         <section id="header">
                             <div id="user-main-commands" class="p-2 d-flex align-items-center bg-light">
                                 <div id="user-main-info" class="d-flex align-items-center flex-grow-1"
-                                    v-for="(contact ,index) in contacts" v-if="active(index)">
+                                    v-for="(contact ,index) in contacts" v-if="isActive(index)">
                                     <div class="icon me-2">
-                                        <img :src="`img/avatar${user.avatar}.jpg`" alt="user-img"
+                                        <img :src="`img/avatar${contact.avatar}.jpg`" alt="user-img"
                                             class="img-fluid overflow-hidden">
                                     </div>
                                     <div>
-                                        <span>{{user.name}}</span> <br>
+                                        <span>{{contact.name}}</span> <br>
                                         <span class="text-muted fs-7">Ultimo accesso oggi alle</span>
                                     </div>
                                 </div>
