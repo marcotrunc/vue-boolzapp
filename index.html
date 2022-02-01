@@ -62,12 +62,12 @@
 
                         </section>
                     </div>
-                    <div id="right-col" class="col-8 bg-light d-flex flex-column justify-content-between">
+                    <div id="right-col" v-for="(contact, index) in contacts" v-if="isActive(index)"
+                        class="col-8 bg-light d-flex flex-column justify-content-between">
                         <!-- Header -->
                         <section id="header">
                             <div id="user-main-commands" class="p-2 d-flex align-items-center bg-light">
-                                <div id="user-main-info" class="d-flex align-items-center flex-grow-1"
-                                    v-for="(contact ,index) in contacts" v-if="isActive(index)">
+                                <div id="user-main-info" class="d-flex align-items-center flex-grow-1">
                                     <div class="icon me-2">
                                         <img :src="`img/avatar${contact.avatar}.jpg`" alt="user-img"
                                             class="img-fluid overflow-hidden">
@@ -85,7 +85,7 @@
                         </section>
                         <!-- Main -->
                         <section id="main">
-                            <div v-for="(contact, index) in contacts" v-if="isActive(index)">
+                            <div v-if="isActive(index)">
                                 <div class="container-message" v-for="(message, y) in contact.messages">
                                     <div :class="isReceived(message)">
                                         {{message.text}}</div>
