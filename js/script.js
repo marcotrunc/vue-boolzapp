@@ -10,10 +10,10 @@ const root = new Vue({
     data: {
         currentIndex: 0,
         textMessage: '',
-        valueSearch: '',
+        search: '',
         user: {
             name: 'Nome Utente',
-            avatar: '_io'
+            avatar: '_io',
         },
         contacts: [
             {
@@ -54,7 +54,7 @@ const root = new Vue({
                 {
                     date: '20/03/2020 16:35:00',
                     text: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                    status: 'received'
+                    status: 'sent'
                 }
                 ],
             },
@@ -97,11 +97,17 @@ const root = new Vue({
             },
         ],
     },
-    methods: {
-        isVisible(index) {
-            const contact = this.contacts[index];
-            return (contact.visible === true) ? true : false;
+    computed: {
+        // Metodo che mi cambia la visibilità
+        filteredContacts() {
+            return this.contacts.filter(contact => {
+                return contact.name.toLowerCase().includes(this.search.toLowerCase())
+            });
         },
+    },
+
+
+    methods: {
         isActive(index) {
             return this.currentIndex === index ? true : false;
         },
@@ -114,6 +120,15 @@ const root = new Vue({
         isSent(message) {
             return message.status === 'sent' ? 'flex-end' : 'flex-start'
         },
+
+        // Metodo che mi permette di vedere se un contatto è visibile
+        isVisible(index) {
+            if (this.contacts[index].visible === true) return true
+            else false
+        },
+
+
+
         newMessageSent(contact) {
             if (!this.textMessage) return;
             const newObjectSent = {
@@ -134,5 +149,5 @@ const root = new Vue({
                 contact.messages = [...contact.messages, newObjectreceived]
             }, 1000)
         },
-    }
+    },
 });
