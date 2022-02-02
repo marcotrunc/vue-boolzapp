@@ -145,4 +145,8 @@ padding: 5px;
     transform: translate(0,-50%);
     margin-right: 32px;
 }
+
+#contact.active{
+background-color: #AEBAC1;
+}
 /*?------------------------------------------ */
