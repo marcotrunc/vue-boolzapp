@@ -107,12 +107,7 @@ const root = new Vue({
         indexAssignment(index) {
             this.currentIndex = index;
         },
-        isReceived(messageStatus) {
-            return messageStatus === 'received' ? 'received-message' : 'send-message'
-        },
-        isSent(message) {
-            return message.status === 'sent' ? 'flex-end' : 'flex-start'
-        },
+
 
         // Metodo che mi permette di vedere se un contatto è in lista
         isVisible(contact) {
@@ -148,12 +143,13 @@ const root = new Vue({
         removeClass(index) {
             if (this.currentMessage === index && this.dNone === true) return true
             else return false
+
         },
         setCurrentMessage(index) {
             this.currentMessage = index;
             if (this.dNone === false) return this.dNone = true
             else this.dNone = false;
-            this.dNone === false
+
         },
         deleteMessage(index) {
             this.contacts[this.currentIndex].messages.splice(index, 1)
