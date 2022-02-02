@@ -12,8 +12,8 @@ const root = new Vue({
         textMessage: '',
         search: '',
         user: {
-            name: 'Nome Utente',
-            avatar: '_io',
+            name: 'Marco',
+            avatar: '_2',
         },
         contacts: [
             {
@@ -38,8 +38,8 @@ const root = new Vue({
                 ],
             },
             {
-                name: 'Fabio',
-                avatar: '_2',
+                name: 'Alessia',
+                avatar: '_io',
                 visible: true,
                 messages: [{
                     date: '20/03/2020 16:30:00',
@@ -97,14 +97,14 @@ const root = new Vue({
             },
         ],
     },
-    computed: {
-        // Metodo che mi cambia la visibilità
-        filteredContacts() {
-            return this.contacts.filter(contact => {
-                return contact.name.toLowerCase().includes(this.search.toLowerCase())
-            });
-        },
-    },
+    // computed: {
+    //     // Metodo che mi cambia la visibilità
+    //     filteredContacts() {
+    //         return this.contacts.filter(contact => {
+    //             return contact.name.toLowerCase().includes(this.search.toLowerCase())
+    //         });
+    //     },
+    // },
 
 
     methods: {
@@ -127,27 +127,33 @@ const root = new Vue({
             else false
         },
 
+        filterArray() {
+            if (!search) return this.contacts
+            else return this.contacts.filter(contact => {
+                const isIncludes = contact.name.toLowerCase().includes(this.search.toLowerCase())
+                contact.visible = (isIncludes) ? true : false;
+            })
+        }
+    },
 
+    newMessageSent(contact) {
+        if (!this.textMessage) return;
+        const newObjectSent = {
+            date: dayjs().format('HH:mm'),
+            text: this.textMessage,
+            status: 'sent',
+        }
+        contact.messages = [...contact.messages, newObjectSent];
+        this.textMessage = '';
 
-        newMessageSent(contact) {
-            if (!this.textMessage) return;
-            const newObjectSent = {
+        setTimeout(() => {
+            const newObjectreceived = {
                 date: dayjs().format('HH:mm'),
-                text: this.textMessage,
-                status: 'sent',
+                text: 'ok',
+                status: 'received',
             }
-            contact.messages = [...contact.messages, newObjectSent];
-            this.textMessage = '';
 
-            setTimeout(() => {
-                const newObjectreceived = {
-                    date: dayjs().format('HH:mm'),
-                    text: 'ok',
-                    status: 'received',
-                }
-
-                contact.messages = [...contact.messages, newObjectreceived]
-            }, 1000)
-        },
+            contact.messages = [...contact.messages, newObjectreceived]
+        }, 1000)
     },
 });

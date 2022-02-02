@@ -53,13 +53,14 @@
                             <!-- Section search -->
                             <div id="search" class="bg-white">
                                 <i class="fas fa-search"></i>
-                                <input type="text" placeholder="Cerca o inizia una nuova" v-model="search">
+                                <input type="text" placeholder="Cerca o inizia una nuova" v-model.trim="search"
+                                    v-on:keyup.enter="filterArray">
                             </div>
                         </section>
                         <!-- Section contacts -->
                         <section id="contacts">
-                            <div v-for="(contact, index) in filteredContacts" id="contact" class="d-flex p-2"
-                                role="button" :class="isActive(index) ?  'active' : '' " v-if="isVisible(index)"
+                            <div v-for="(contact, index) in contacts" id="contact" class="d-flex p-2" role="button"
+                                :class="isActive(index) ?  'active' : '' " v-if="isVisible(index)"
                                 @click=" indexAssignment(index)">
                                 <div class="icon me-2">
                                     <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name"
@@ -94,6 +95,8 @@
                         <section id="main">
                             <div class="container-message" v-for="message in contacts[currentIndex].messages">
                                 <div :class="isReceived(message.status)">
+                                    <div id="option-message" class="text.muted"><i class="fas fa-chevron-down"></i>
+                                    </div>
                                     <span>{{message.text}}</span>
                                     <div class="text-muted text-end fs-8">{{message.date}}
                                     </div>
