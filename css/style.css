@@ -135,6 +135,7 @@ padding: 5px;
     top:50%;
     transform: translate(0,-50%);
     margin-left: 32px;
+    z-index: 2;
     
 }
 .send-message{
@@ -144,9 +145,36 @@ padding: 5px;
     top:50%;
     transform: translate(0,-50%);
     margin-right: 32px;
+    z-index: 2;
 }
 
 #contact.active{
 background-color: #AEBAC1;
+}
+
+.container-message #option-message{
+    position: absolute;
+    top: 0;
+    right: 5px;
+    cursor: pointer;
+    display: none;
+}
+.container-message:hover #option-message{
+display: block;
+}
+#list-option{
+    position: absolute;
+    top: 85%;
+    right: 0;
+    z-index: 3;
+}
+#list-option ul{
+    text-decoration: none;
+    list-style-type: none;
+    padding-right:2rem
+}
+#list-option ul li{
+display: flex;
+justify-content: center;
 }
 /*?------------------------------------------ */

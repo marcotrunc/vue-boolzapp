@@ -60,7 +60,7 @@
                         <!-- Section contacts -->
                         <section id="contacts">
                             <div v-for="(contact, index) in contacts" id="contact" class="d-flex p-2" role="button"
-                                :class="isActive(index) ?  'active' : '' " v-if="isVisible(index)"
+                                :class="isActive(index) ?  'active' : '' " v-if="isVisible(contact)"
                                 @click=" indexAssignment(index)">
                                 <div class="icon me-2">
                                     <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name"
@@ -96,6 +96,12 @@
                             <div class="container-message" v-for="message in contacts[currentIndex].messages">
                                 <div :class="isReceived(message.status)">
                                     <div id="option-message" class="text.muted"><i class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <div id="list-option" class="bg-white text-center">
+                                        <ul>
+                                            <li>Info Messaggio</li>
+                                            <li>Cancella Messaggio</li>
+                                        </ul>
                                     </div>
                                     <span>{{message.text}}</span>
                                     <div class="text-muted text-end fs-8">{{message.date}}

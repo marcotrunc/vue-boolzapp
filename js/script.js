@@ -121,39 +121,37 @@ const root = new Vue({
             return message.status === 'sent' ? 'flex-end' : 'flex-start'
         },
 
-        // Metodo che mi permette di vedere se un contatto è visibile
-        isVisible(index) {
-            if (this.contacts[index].visible === true) return true
-            else false
-        },
-
-        filterArray() {
-            if (!search) return this.contacts
-            else return this.contacts.filter(contact => {
+        // Metodo che mi permette di vedere se un contatto è in lista
+        isVisible(contact) {
+            if (this.search === '') {
+                return true
+            } else {
                 const isIncludes = contact.name.toLowerCase().includes(this.search.toLowerCase())
-                contact.visible = (isIncludes) ? true : false;
-            })
-        }
-    },
-
-    newMessageSent(contact) {
-        if (!this.textMessage) return;
-        const newObjectSent = {
-            date: dayjs().format('HH:mm'),
-            text: this.textMessage,
-            status: 'sent',
-        }
-        contact.messages = [...contact.messages, newObjectSent];
-        this.textMessage = '';
-
-        setTimeout(() => {
-            const newObjectreceived = {
-                date: dayjs().format('HH:mm'),
-                text: 'ok',
-                status: 'received',
+                return contact.visible = (isIncludes) ? true : false;
             }
 
-            contact.messages = [...contact.messages, newObjectreceived]
-        }, 1000)
-    },
+        },
+
+        newMessageSent(contact) {
+            if (!this.textMessage) return;
+            const newObjectSent = {
+                date: dayjs().format('HH:mm'),
+                text: this.textMessage,
+                status: 'sent',
+            }
+            contact.messages = [...contact.messages, newObjectSent];
+            this.textMessage = '';
+
+            setTimeout(() => {
+                const newObjectreceived = {
+                    date: dayjs().format('HH:mm'),
+                    text: 'ok',
+                    status: 'received',
+                }
+
+                contact.messages = [...contact.messages, newObjectreceived]
+            }, 1000)
+        }
+
+    }
 });
