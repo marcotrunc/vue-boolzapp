@@ -11,6 +11,8 @@ const root = new Vue({
         currentIndex: 0,
         textMessage: '',
         search: '',
+        currentMessage: 0,
+        dNone: false,
         user: {
             name: 'Marco',
             avatar: '_2',
@@ -97,15 +99,6 @@ const root = new Vue({
             },
         ],
     },
-    // computed: {
-    //     // Metodo che mi cambia la visibilità
-    //     filteredContacts() {
-    //         return this.contacts.filter(contact => {
-    //             return contact.name.toLowerCase().includes(this.search.toLowerCase())
-    //         });
-    //     },
-    // },
-
 
     methods: {
         isActive(index) {
@@ -151,7 +144,19 @@ const root = new Vue({
 
                 contact.messages = [...contact.messages, newObjectreceived]
             }, 1000)
-        }
-
-    }
+        },
+        removeClass(index) {
+            if (this.currentMessage === index && this.dNone === true) return true
+            else return false
+        },
+        setCurrentMessage(index) {
+            this.currentMessage = index;
+            if (this.dNone === false) return this.dNone = true
+            else this.dNone = false;
+            this.dNone === false
+        },
+        deleteMessage(index) {
+            this.contacts[this.currentIndex].messages.splice(index, 1)
+        },
+    },
 });

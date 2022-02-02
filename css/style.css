@@ -126,9 +126,6 @@ padding: 5px;
     display: flex;
     margin-bottom: 10px;
     position: relative;
-
-    position: relative;
-    z-index: 0;
 }
 .received{
     background-color: #ffffff;
@@ -142,32 +139,38 @@ padding: 5px;
 background-color: #AEBAC1;
 }
 
-#message{
+.message{
     position: relative;
-    z-index: -1;
+    word-wrap: break-word;
 }
-#option-message{
+.option-message{
     position: absolute;
     top:0;
     right: 5px;
     display: none;
 }
-#message:hover #option-message{
-display: block;
+.message:hover .option-message{
+    display: block;
 }
-#list-option{
+.list-option{
     position: absolute;
     top: 80%;
     right: 0;
     z-index: 5;
 }
-#list-option ul{
+.list-option ul{
     text-decoration: none;
     list-style-type: none;
-    padding-right:2rem
+    padding: 0;
+    margin-bottom:0;
+    margin-top: 0;
 }
-#list-option ul li{
-    display: flex;
-    justify-content: center;
+.list-option ul li{
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+}
+.list-option ul li:hover{
+    background-color: var(--bs-grey);
 }
 /*?------------------------------------------ */
