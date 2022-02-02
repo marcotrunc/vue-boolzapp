@@ -12,7 +12,7 @@ const root = new Vue({
         textMessage: '',
         search: '',
         currentMessage: 0,
-        dNone: false,
+        dNone: true,
         user: {
             name: 'Marco',
             avatar: '_2',
@@ -101,11 +101,14 @@ const root = new Vue({
     },
 
     methods: {
+        // Metodo che controlla l'uguaglianza 
         isActive(index) {
             return this.currentIndex === index ? true : false;
         },
+        // Assegnazione del currentIntex
         indexAssignment(index) {
             this.currentIndex = index;
+            this.setdNoneTrue()
         },
 
 
@@ -117,42 +120,48 @@ const root = new Vue({
                 const isIncludes = contact.name.toLowerCase().includes(this.search.toLowerCase())
                 return contact.visible = (isIncludes) ? true : false;
             }
-
         },
-
+        // Metodo che aggiunge un nuovo elemento all'array messages
         newMessageSent(contact) {
             if (!this.textMessage) return;
-            const newObjectSent = {
-                date: dayjs().format('HH:mm'),
-                text: this.textMessage,
-                status: 'sent',
-            }
-            contact.messages = [...contact.messages, newObjectSent];
+
+            const newObject = this.createNewObject(this.textMessage, 'sent')
+            contact.messages = [...contact.messages, newObject];
             this.textMessage = '';
-
+            // Funzione di risposta
             setTimeout(() => {
-                const newObjectreceived = {
-                    date: dayjs().format('HH:mm'),
-                    text: 'ok',
-                    status: 'received',
-                }
-
-                contact.messages = [...contact.messages, newObjectreceived]
+                const newObject = this.createNewObject('ok', 'received')
+                contact.messages = [...contact.messages, newObject]
             }, 1000)
         },
-        removeClass(index) {
-            if (this.currentMessage === index && this.dNone === true) return true
-            else return false
-
+        // Metodo utile per creare un nuovo oggetto
+        createNewObject(text, status) {
+            const newObject = {
+                date: dayjs().format('HH:mm'),
+                text,
+                status
+            }
+            return newObject
         },
+        // Metodo utile per il toogle sulla freccia
+        removeClass(index) {
+            if (this.currentMessage === index && this.dNone === false) return true
+            else return false
+        },
+        // Assegnare il valore al currentMessage
         setCurrentMessage(index) {
             this.currentMessage = index;
-            if (this.dNone === false) return this.dNone = true
-            else this.dNone = false;
-
+            if (this.dNone === true) return this.dNone = false
+            else return this.setdNoneTrue()
         },
+        // Assegnare il valore false al dNone
+        setdNoneTrue() {
+            return this.dNone = true;
+        },
+        // Metodo per cancellare un messaggio
         deleteMessage(index) {
             this.contacts[this.currentIndex].messages.splice(index, 1)
         },
+
     },
 });

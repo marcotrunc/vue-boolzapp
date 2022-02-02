@@ -36,6 +36,9 @@ i{
     height: 100vh;
     background-image: linear-gradient(to bottom,#00A884 20%, #E0E0DD 20%,#E0E0DD 20%,#E0E0DD 20%,#E0E0DD 20%);
     padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 /**CONTAINER**/
 .container{
@@ -153,6 +156,7 @@ background-color: #AEBAC1;
     display: block;
 }
 .list-option{
+    width:160px;
     position: absolute;
     top: 80%;
     right: 0;
@@ -169,6 +173,7 @@ background-color: #AEBAC1;
     display: inline-block;
     width: 100%;
     cursor: pointer;
+    padding: 4px 10px
 }
 .list-option ul li:hover{
     background-color: var(--bs-grey);
