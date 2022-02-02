@@ -50,12 +50,12 @@
                             </div>
                             <div id="search" class="bg-white">
                                 <i class="fas fa-search"></i>
-                                <input type="search" placeholder="Cerca o inizia una nuova">
+                                <input type="search" placeholder="Cerca o inizia una nuova" v-model="valueSearch">
                             </div>
                         </section>
                         <section id="contacts">
                             <div v-for="(contact, index) in contacts" id="contact" class="d-flex p-2"
-                                @click="indexAssignment(index)">
+                                @click="indexAssignment(index)" role="button">
                                 <div class="icon me-2">
                                     <img :src="`img/avatar${contact.avatar}.jpg`" alt=""
                                         class="img-fluid overflow-hidden">
@@ -65,19 +65,18 @@
 
                         </section>
                     </div>
-                    <div id="right-col" v-for="(contact, index) in contacts" v-if="isActive(index)"
-                        class="col-8 bg-light d-flex flex-column justify-content-between">
+                    <div id="right-col" class="col-8 bg-light d-flex flex-column justify-content-between">
                         <!-- Header -->
                         <section id="header">
                             <div id="user-main-commands" class="p-2 d-flex align-items-center bg-light">
                                 <div id="user-main-info" class="d-flex align-items-center flex-grow-1">
                                     <div class="icon me-2">
-                                        <img :src="`img/avatar${contact.avatar}.jpg`" alt="user-img"
+                                        <img :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" alt="user-img"
                                             class="img-fluid overflow-hidden">
                                     </div>
                                     <div>
-                                        <span>{{contact.name}}</span> <br>
-                                        <span class="text-muted fs-7">Ultimo accesso oggi alle</span>
+                                        <span>{{contacts[currentIndex].name}}</span> <br>
+                                        <span class="text-muted fs-7" v-text="`Ultimo accesso oggi alle `"></span>
                                     </div>
                                 </div>
                                 <div id="user-main-icons">
@@ -88,24 +87,23 @@
                         </section>
                         <!-- Main -->
                         <section id="main">
-                            <div v-if="isActive(index)">
-                                <div class="container-message" v-for="(message, y) in contact.messages">
-                                    <div :class="isReceived(message)">
-                                        <span>{{message.text}}</span>
-                                        <div class="text-muted text-end fs-8">{{message.date}}
 
-                                        </div>
+                            <div class="container-message" v-for="message in contacts[currentIndex].messages">
+                                <div :class="isReceived(message.status)">
+                                    <span>{{message.text}}</span>
+                                    <div class="text-muted text-end fs-8">{{message.date}}
                                     </div>
                                 </div>
                             </div>
+
 
 
                         </section>
                         <!-- Footer -->
                         <section id="footer" class="d-flex justify-content-between align-items-center px-2 py-3">
                             <i class="far fa-smile fa-lg m-2"></i>
-                            <input type="text" placeholder="Scrivi un messaggio" v-model="textMessage"
-                                @keyup.enter="newMessageSent(contact)">
+                            <input type="text" placeholder="Scrivi un messaggio" v-model.trim="textMessage"
+                                @keyup.enter="newMessageSent(contacts[currentIndex])">
                             <i class="fas fa-microphone fa-lg m-2"></i>
                         </section>
                     </div>

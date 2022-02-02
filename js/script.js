@@ -10,6 +10,7 @@ const root = new Vue({
     data: {
         currentIndex: 0,
         textMessage: '',
+        valueSearch: '',
         user: {
             name: 'Nome Utente',
             avatar: '_io'
@@ -97,19 +98,24 @@ const root = new Vue({
         ],
     },
     methods: {
+        isVisible(index) {
+            const contact = this.contacts[index];
+            return (contact.visible === true) ? true : false;
+        },
         isActive(index) {
             return this.currentIndex === index ? true : false;
         },
         indexAssignment(index) {
             this.currentIndex = index;
         },
-        isReceived(message) {
-            return message.status === 'received' ? 'received-message' : 'send-message'
+        isReceived(messageStatus) {
+            return messageStatus === 'received' ? 'received-message' : 'send-message'
         },
         isSent(message) {
             return message.status === 'sent' ? 'flex-end' : 'flex-start'
         },
         newMessageSent(contact) {
+            if (!this.textMessage) return;
             const newObjectSent = {
                 date: dayjs().format('HH:mm'),
                 text: this.textMessage,
