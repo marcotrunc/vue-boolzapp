@@ -115,58 +115,51 @@ padding: 5px;
     overflow-x: hidden;
 }
 /*? Received-message*/
-.received-message,
-.send-message{
+.received,
+.sent{
     min-width: 230px;
     padding: 10px 15px;
     border-radius: 10px;
     font-size: 0.95rem;
 }
 .container-message{
-    display: block;
-    height: 80px;
-    position: relative;
+    display: flex;
     margin-bottom: 10px;
+    position: relative;
+
+    position: relative;
+    z-index: 0;
 }
-.received-message{
+.received{
     background-color: #ffffff;
-    position: absolute;
-    left: 0;
-    top:50%;
-    transform: translate(0,-50%);
-    margin-left: 32px;
-    z-index: 2;
-    
+
 }
-.send-message{
+.sent{
     background-color: #D9FDD3;
-    position: absolute;
-    right: 0;
-    top:50%;
-    transform: translate(0,-50%);
-    margin-right: 32px;
-    z-index: 2;
 }
 
 #contact.active{
 background-color: #AEBAC1;
 }
 
-.container-message #option-message{
+#message{
+    position: relative;
+    z-index: -1;
+}
+#option-message{
     position: absolute;
-    top: 0;
+    top:0;
     right: 5px;
-    cursor: pointer;
     display: none;
 }
-.container-message:hover #option-message{
+#message:hover #option-message{
 display: block;
 }
 #list-option{
     position: absolute;
-    top: 85%;
+    top: 80%;
     right: 0;
-    z-index: 3;
+    z-index: 5;
 }
 #list-option ul{
     text-decoration: none;
@@ -174,7 +167,7 @@ display: block;
     padding-right:2rem
 }
 #list-option ul li{
-display: flex;
-justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 /*?------------------------------------------ */
